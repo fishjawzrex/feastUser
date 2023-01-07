@@ -6,13 +6,13 @@ import java.util.List;
 public class MenuItem {
 //    @Id
 //    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int itemId;
+//    private int itemId;
     private String itemName;
     private boolean veg;
     private int calories;
     private float price;
     private boolean isAvailable;
-    private int orderId;
+//    private int orderId;
 
     public MenuItem() {
     }

@@ -14,7 +14,18 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int userID;
     private String userName;
+
+    public String getPassword() {
+        return password;
+    }
+
     private  String email;
+
+    private String password;
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public User() {
     }
