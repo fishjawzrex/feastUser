@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.model.User;
 import org.example.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -87,6 +88,20 @@ public class UserService {
         }
         System.out.println("user not found :( "+email);
         return null;
+    }
+
+    public User findByUserName(String username){
+        Set<User> userList = getAllUsers();
+        System.out.println("**** "+userList);
+        for(User user: userList){
+            System.out.println("***"+user.getUserName()+"***");
+            if(user.getUserName().equals(username)){
+                System.out.println("$$$$$"+user.getRole()+"$$$$$");
+                return user;
+            }
+        }
+        throw new UsernameNotFoundException("username 404");
+
     }
 
 

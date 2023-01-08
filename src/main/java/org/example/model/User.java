@@ -15,17 +15,65 @@ public class User {
     private int userID;
     private String userName;
 
-    public String getPassword() {
-        return password;
+    public User(String userName, String email, String password, String role, boolean isEnabled, boolean isAccountLocked, boolean isAccountExpired, boolean isCredentialExpired) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isEnabled = isEnabled;
+        this.isAccountLocked = isAccountLocked;
+        this.isAccountExpired = isAccountExpired;
+        this.isCredentialExpired = isCredentialExpired;
     }
 
     private  String email;
-
     private String password;
+    private String role;
+    private boolean isEnabled;
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getRole() {
+        return role;
     }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public boolean isAccountLocked() {
+        return isAccountLocked;
+    }
+
+    public void setAccountLocked(boolean accountLocked) {
+        isAccountLocked = accountLocked;
+    }
+
+    public boolean isAccountExpired() {
+        return isAccountExpired;
+    }
+
+    public void setAccountExpired(boolean accountExpired) {
+        isAccountExpired = accountExpired;
+    }
+
+    public boolean isCredentialExpired() {
+        return isCredentialExpired;
+    }
+
+    public void setCredentialExpired(boolean credentialExpired) {
+        isCredentialExpired = credentialExpired;
+    }
+
+    private  boolean isAccountLocked;
+    private boolean isAccountExpired;
+    private boolean isCredentialExpired;
 
     public User() {
     }
@@ -34,7 +82,12 @@ public class User {
         this.userName = userName;
         this.email = email;
     }
-
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public int getUserID() {
         return userID;
     }

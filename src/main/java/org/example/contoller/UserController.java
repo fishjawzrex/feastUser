@@ -12,16 +12,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/")
 public class UserController {
     @Autowired
     UserService userServ;
 
-    @GetMapping("/tests")
+    @GetMapping("/")
     public String getTest(){
-        return "test from UserController successfull!";
+        return "Welcome to Feast Freedom, Please select one of our Kitchens!";
     }
-    @GetMapping("/all")
+    @GetMapping("/users/all")
     public Set<User> getAllUsers(){
         try {
             Set<User> userSet = userServ.getAllUsers();
@@ -33,7 +33,7 @@ public class UserController {
         }
 
     }
-    @GetMapping("/{userID}")
+    @GetMapping("/users/{userID}")
     public User getUserByID(@PathVariable int userID){
         try {
             return userServ.getUserById(userID);
@@ -41,7 +41,7 @@ public class UserController {
             throw new RuntimeException(e);
         }
     }
-    @GetMapping("findByEmail/{userEmail}")
+    @GetMapping("/users/findByEmail/{userEmail}")
     public User getUserByEmail(@PathVariable String userEmail){
         try {
             return userServ.findByEmail(userEmail);
@@ -50,7 +50,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("update/{userID}")
+    @PutMapping("/users/update/{userID}")
     public ResponseEntity updateUser(@PathVariable int userID,@RequestBody User user){
         try {
             User tempUser = userServ.getUserById(userID);
@@ -64,7 +64,7 @@ public class UserController {
         }
         return ResponseEntity.ok(HttpStatus.OK);
     }
-    @PostMapping("/register")
+    @PostMapping("/users/register")
     public ResponseEntity registerUser(@RequestBody User user){
         try {
             userServ.addUser(user);
